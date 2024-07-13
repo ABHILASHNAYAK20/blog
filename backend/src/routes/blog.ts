@@ -6,30 +6,32 @@ import { createBlogInput } from "@abhilash_26/medium-common";
 import { updateBlogInput } from "@abhilash_26/medium-common";
 
 
+
 export const blogRouter=new Hono<{
     Bindings:{
-      DATABASE_URL :string,
-      JWT_SECRET:string
+      DATABASE_URL :string;
+      JWT_SECRET:string;
     },
     Variables:{
-        userId: string;
+       userId:string ;
     }
     
   }>();
 
   // Middleware
 
-blogRouter.use('/*', async(c,next)=>{
+blogRouter.use("/*", async(c,next)=>{
 
-    const authHeader =c.req.header("authorization") || "";
+    const authHeader =c.req.header("Authorization") || "";
   
       //Bearer token =>["Bearer", "token"];
     //   const token =authHeader.split(" ")[1]
   try{
     const user = await verify(authHeader, c.env.JWT_SECRET)
     if(user){
-        c.set("userId", user.id)
-       await next()
+       //@ts-ignore
+        c.set("userId", user.id);
+       await next();
     }else{
       c.status(403)
       return c.json({error:"unauthorized"})
@@ -37,7 +39,7 @@ blogRouter.use('/*', async(c,next)=>{
 } catch(e){
     c.status(403);
     return c.json({
-        message :"You are not logged in"
+        message :"Yours are not logged in"
     })
 }
   })
@@ -61,7 +63,8 @@ blogRouter.post('/', async(c) => {
         data:{
             title: body.title,
             content: body.content,
-            authorId: Number(authorId)
+            authorId: Number(authorId),
+            Date:new Date()
         }
       })
     return c.json({
@@ -89,6 +92,7 @@ blogRouter.post('/', async(c) => {
         data:{
             title: body.title,
             content: body.content,
+            Date: new Date()
             
         }
       })
@@ -109,6 +113,7 @@ blogRouter.get('/bulk', async(c) => {
             content:true,
             title:true,
             id:true,
+            Date:true,
             author:{
                 select:{
                     name:true
@@ -134,6 +139,17 @@ blogRouter.get('/:id', async(c) => {
             where:{
                 id:Number(id)
             },
+            select:{
+                id:true,
+                title:true,
+                content:true,
+                Date:true,
+                author:{
+                    select:{
+                        name:true
+                    }
+                }
+            }
           })
         return c.json({
            blog

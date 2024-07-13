@@ -27,25 +27,31 @@ export type SigninInput = z.infer<typeof signinInput>;
 export declare const createBlogInput: z.ZodObject<{
     title: z.ZodString;
     content: z.ZodString;
+    Date: z.ZodDate;
 }, "strip", z.ZodTypeAny, {
     title: string;
     content: string;
+    Date: Date;
 }, {
     title: string;
     content: string;
+    Date: Date;
 }>;
 export type CreateBlogInput = z.infer<typeof createBlogInput>;
 export declare const updateBlogInput: z.ZodObject<{
     title: z.ZodString;
     content: z.ZodString;
     id: z.ZodNumber;
+    Date: z.ZodDate;
 }, "strip", z.ZodTypeAny, {
     title: string;
     content: string;
+    Date: Date;
     id: number;
 }, {
     title: string;
     content: string;
+    Date: Date;
     id: number;
 }>;
 export type UpdateBlogInput = z.infer<typeof updateBlogInput>;

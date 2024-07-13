@@ -1,4 +1,4 @@
-import z from "zod"
+import z, { ZodDate, date } from "zod"
 
 export const signupInput =z .object({
     email : z.string().email(),
@@ -25,6 +25,7 @@ export type SigninInput =z.infer<typeof signinInput>
 export const createBlogInput =z .object({
     title : z.string(),
     content: z.string(),
+    Date:z.date()
     
 })
 export type CreateBlogInput =z.infer<typeof createBlogInput>
@@ -32,7 +33,8 @@ export type CreateBlogInput =z.infer<typeof createBlogInput>
 export const updateBlogInput =z .object({
     title : z.string(),
     content: z.string(),
-    id: z.number()
+    id: z.number(),
+    Date:z.date()
     
 })
 export type UpdateBlogInput =z.infer<typeof updateBlogInput>

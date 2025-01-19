@@ -9,7 +9,8 @@ export interface Blog {
     "author": {
         "name": string
     }
-    "Date":number
+    "Date":number;
+    publishedDate?: string; 
 }
 
 export const useBlog=({ id }: { id: string })=>{

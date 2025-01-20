@@ -2,24 +2,57 @@
 
 This project is a feature-rich blog platform that allows users to log in, create blogs, and explore blogs written by others. Built with TypeScript, JavaScript, HTML, and CSS, it combines strong typing, dynamic content rendering, and responsive design for a seamless user experience.
 
-Features
-User Authentication: Secure user login and registration.
-Create Blogs: Users can write and publish their blogs.
-Explore Blogs: Browse and read blogs from other user.
+## Features
+User Authentication: Secure user login and registration.\
+Create Blogs: Users can write and publish their blogs.\
+Explore Blogs: Browse and read blogs from other user.\
 Dynamic Updates: Blogs are displayed in real-time, reflecting user interactions.
 
-Tech Stack
+## Tech Stack
 
-Frontend:
-TypeScript: Ensures type safety and reduces runtime errors.
-JavaScript: Enables dynamic functionality and interactions.
-HTML: Structures the web pages.
+### Frontend:
+TypeScript: Ensures type safety and reduces runtime errors.\
+JavaScript: Enables dynamic functionality and interactions.\
+HTML: Structures the web pages.\
 CSS: Styles the website for a visually appealing look.
 
-Backend:
-Cloudflare Workers: For lightweight and highly scalable serverless computing.
-Express: Simplifies API creation and server logic.
+### Backend:
+Cloudflare Workers: For lightweight and highly scalable serverless computing.\
+Express: Simplifies API creation and server logic.\
 Aiven DB: A fully managed database solution for storing user and blog data.
+
+## Setup and Installation :-
+  git clone [https://github.com/ABHILASHNAYAK20/blog.git] 
+
+### Steps 
+1. Navigate to the project directory - cd blog 
+2. Install dependencies - npm install
+3. Start the frontend - cd frontend
+4. Start the backend - cd backend
+5. Set up environment variables for Cloudflare Workers and Aiven DB. Create a .env file in the root directory and configure the following variables.
+
+## Folder Structure 
+1. backend/src/prisma - prisma integration.
+2. backend/src/routes - for the backend routes.
+3. common/src/index.ts - for the email and password common link.
+4. frontend/src/pages - for the pages in the blog website
+5. frontend/src/components - for the different compoments present.
+6. frontend/src/hooks - for the blogs to upload.
+7. frontend/app.tsx - for the main file structure.
+
+## Screenshots :- 
+
+
+
+
+ 
+![Screenshot (244)](https://github.com/user-attachments/assets/3d965385-1861-4e38-aa3c-6ad4980523e3)
+  
+![Screenshot (245)](https://github.com/user-attachments/assets/fd8e344c-b122-4e4c-9a87-fd5097c24ff0)
+
+![Screenshot (246)](https://github.com/user-attachments/assets/e0f92de3-09af-422a-ac9f-516a1ed85015)
+
+![Screenshot (247)](https://github.com/user-attachments/assets/4531e294-7272-46d1-beaf-f073cfc7d31f)
 
 
 
